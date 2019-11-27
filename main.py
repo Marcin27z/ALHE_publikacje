@@ -28,7 +28,7 @@ def calculate_share_sum(author_publications):
 def greedy_select_worst_publications(author_publications, share_sum, limit):
     sorted_publications = sorted(author_publications)  # sorted tworzy kopię listy w przeciwieństwie do sort
     to_be_deleted = list()
-    while share_sum >= limit:
+    while share_sum > limit:
         share_sum -= sorted_publications[0].share
         to_be_deleted.append(sorted_publications[0].publication_number)
         sorted_publications.pop(0)
