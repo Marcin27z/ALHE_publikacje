@@ -1,3 +1,7 @@
+#! python3
+
+from publication import Publication
+
 def main():
     print("hello world")
 
