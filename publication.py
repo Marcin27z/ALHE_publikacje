@@ -1,7 +1,8 @@
 #! python3
 
 class Publication:
-    def __init__(self, points, share):
+    def __init__(self, publication_number, points, share):
+        self.publication_number = publication_number
         self.points = points
         self.share = share
     

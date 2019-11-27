@@ -2,9 +2,60 @@
 
 from publication import Publication
 
-def main():
-    print("hello world")
+# do zmiany jak pojawią się pliki z danymi
+def process_input_data():
+    author1 = list()
+    for i in range(7):
+        author1.append(Publication(i, 50+i,95+i))
+    author2 = [Publication(0,20,30)]
+    return [author1, author2]
 
+# przygotowanie listy list zer i jedynek
+def prepare_inclusion_matrix(publications):
+    inclusion_matrix = list()
+    for author in publications:
+        inclusion_matrix.append([1] * len(author))
+    return inclusion_matrix
+
+# policzenie sumy udziałów danego autora
+def calculate_share_sum(author_publications):
+    share_sum = 0
+    for publication in author_publications:
+        share_sum += publication.share
+    return share_sum
+
+# metoda zwracająca listę numerów publikacji do usunięcia (numery wybierane zachłannie)
+def greedy_select_worst_publications(author_publications, share_sum, limit):
+    sorted_publications = sorted(author_publications)  # sorted tworzy kopię listy w przeciwieństwie do sort
+    to_be_deleted = list()
+    while share_sum >= limit:
+        share_sum -= sorted_publications[0].share
+        to_be_deleted.append(sorted_publications[0].publication_number)
+        sorted_publications.pop(0)
+    to_be_deleted.sort()
+    return to_be_deleted
+
+def main():
+    publications = process_input_data()
+    inclusion_matrix = prepare_inclusion_matrix(publications)
+
+    # zachłanna wstępna selekcja dla każdego z autorów z osobna (modyfikacja listy list zer i jedynek)
+    for author_number, author in enumerate(publications):
+        share_sum = calculate_share_sum(author)
+        if share_sum > 550:
+            to_be_deleted = greedy_select_worst_publications(author, share_sum, 550)
+            index = 0
+            while len(to_be_deleted) != 0:
+                if index == to_be_deleted[0]:
+                    inclusion_matrix[author_number][index] = 0
+                    to_be_deleted.pop(0)
+                index += 1
+
+    # prosty test - działa
+    for author in inclusion_matrix:
+        for include in author:
+            print(include, end = '')
+        print()
 
 if __name__ == "__main__":
     main()
