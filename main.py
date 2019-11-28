@@ -1,5 +1,6 @@
 #! python3
 
+import random
 from publication import Publication
 
 # do zmiany jak pojawią się pliki z danymi
@@ -35,9 +36,20 @@ def greedy_select_worst_publications(author_publications, share_sum, limit):
     to_be_deleted.sort()
     return to_be_deleted
 
+# metoda generująca losową listę list zer i jedynek repreentującą chromosom
+def generate_chromosome(author_publications_number):
+    chromosome = list()
+    for author_publications in author_publications_number:
+        gene = list()
+        for _ in range(author_publications):
+            gene.append(random.randint(0,1))
+        chromosome.append(gene)
+    return chromosome
+
 def main():
     publications = process_input_data()
     inclusion_matrix = prepare_inclusion_matrix(publications)
+    author_publications_number = list()
 
     # zachłanna wstępna selekcja dla każdego z autorów z osobna (modyfikacja listy list zer i jedynek)
     for author_number, author in enumerate(publications):
@@ -52,12 +64,14 @@ def main():
                     to_be_deleted.pop(0)
                 else:
                     index += 1
+        author_publications_number.append(len(author))
 
     # prosty test - działa
     for author in publications:
         for publication in author:
             print(publication.publication_number, end = '')
         print()
+
 
 if __name__ == "__main__":
     main()
