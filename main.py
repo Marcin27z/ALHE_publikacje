@@ -46,15 +46,17 @@ def main():
             to_be_deleted = greedy_select_worst_publications(author, share_sum, 550)
             index = 0
             while len(to_be_deleted) != 0:
-                if index == to_be_deleted[0]:
-                    inclusion_matrix[author_number][index] = 0
+                if author[index].publication_number == to_be_deleted[0]:
+                    inclusion_matrix[author_number].pop(index)
+                    author.pop(index)
                     to_be_deleted.pop(0)
-                index += 1
+                else:
+                    index += 1
 
     # prosty test - działa
-    for author in inclusion_matrix:
-        for include in author:
-            print(include, end = '')
+    for author in publications:
+        for publication in author:
+            print(publication.publication_number, end = '')
         print()
 
 if __name__ == "__main__":
