@@ -3,13 +3,15 @@
 import random
 from publication import Publication
 
+
 # do zmiany jak pojawią się pliki z danymi
 def process_input_data():
     author1 = list()
     for i in range(7):
-        author1.append(Publication(i, 50+i,95+i))
-    author2 = [Publication(0,20,30)]
+        author1.append(Publication(i, 50 + i, 95 + i))
+    author2 = [Publication(0, 20, 30)]
     return [author1, author2]
+
 
 # przygotowanie listy list zer i jedynek
 def prepare_inclusion_matrix(publications):
@@ -18,12 +20,14 @@ def prepare_inclusion_matrix(publications):
         inclusion_matrix.append([1] * len(author))
     return inclusion_matrix
 
+
 # policzenie sumy udziałów danego autora
 def calculate_share_sum(author_publications):
     share_sum = 0
     for publication in author_publications:
         share_sum += publication.share
     return share_sum
+
 
 # metoda zwracająca listę numerów publikacji do usunięcia (numery wybierane zachłannie)
 def greedy_select_worst_publications(author_publications, share_sum, limit):
@@ -36,15 +40,17 @@ def greedy_select_worst_publications(author_publications, share_sum, limit):
     to_be_deleted.sort()
     return to_be_deleted
 
+
 # metoda generująca losową listę list zer i jedynek repreentującą chromosom
 def generate_chromosome(author_publications_number):
     chromosome = list()
     for author_publications in author_publications_number:
         gene = list()
         for _ in range(author_publications):
-            gene.append(random.randint(0,1))
+            gene.append(random.randint(0, 1))
         chromosome.append(gene)
     return chromosome
+
 
 def main():
     publications = process_input_data()
@@ -69,7 +75,7 @@ def main():
     # prosty test - działa
     for author in publications:
         for publication in author:
-            print(publication.publication_number, end = '')
+            print(publication.publication_number, end='')
         print()
 
 
