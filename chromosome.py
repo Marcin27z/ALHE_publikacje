@@ -1,21 +1,29 @@
 import random
 import params
 
-
 class Chromosome:
-    def __init__(self, author_publications_number):
-        self.chromosome = generate_chromosome(author_publications_number)
+    def __init__(self, chromosome):
+        self.chromosome = chromosome
+
+    @classmethod
+    def random(cls, author_publications_number):
+        return cls(generate_chromosome(author_publications_number))
+
+    @classmethod
+    def from_list(cls, chromosome):
+        return cls(chromosome)
 
     def cross(self, other):
         chromosome = [gene1 if _should_cross() else gene2 for (gene1, gene2) in
                       list(zip(self.chromosome, other.chromosome))]
-        print(chromosome)
+        return Chromosome.from_list(chromosome)
 
     def mutate(self):
         for gene in self.chromosome:
             for value in gene:
                 if _should_mutate():
                     value = not value
+        return self
 
 
 # metoda generująca losową listę list zer i jedynek reprezentującą chromosom
