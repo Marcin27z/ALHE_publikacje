@@ -1,3 +1,5 @@
+#! python3
+
 import random
 import params
 
@@ -6,8 +8,8 @@ class Chromosome:
         self.chromosome = chromosome
 
     @classmethod
-    def random(cls, author_publications_number):
-        return cls(generate_chromosome(author_publications_number))
+    def random(cls, author_publications_numbers: list):
+        return cls(generate_chromosome(author_publications_numbers))
 
     @classmethod
     def from_list(cls, chromosome):
@@ -27,9 +29,9 @@ class Chromosome:
 
 
 # metoda generująca losową listę list zer i jedynek reprezentującą chromosom
-def generate_chromosome(author_publications_number):
+def generate_chromosome(author_publications_numbers: list):
     chromosome = list()
-    for author_publications in author_publications_number:
+    for author_publications in author_publications_numbers:
         gene = list()
         for _ in range(author_publications):
             gene.append(random.randint(0, 1))

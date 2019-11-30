@@ -1,3 +1,5 @@
+#! python3
+
 import functools
 import random
 
@@ -24,8 +26,8 @@ def select_best(chromosomes: list, data: Data):
 
 
 if __name__ == "__main__":
-    a1 = Author([Publication(0, 10, 10), Publication(1, 10, 20)], 100)
-    a2 = Author([Publication(2, 10, 10), Publication(3, 20, 20)], 50)
-    a3 = Author([Publication(4, 10, 10), Publication(5, 30, 20)], 75)
+    a1 = Author([Publication(0, 10, 0.1), Publication(1, 10, 0.2)], 1)
+    a2 = Author([Publication(2, 10, 0.1), Publication(3, 20, 0.2)], 0.5)
+    a3 = Author([Publication(4, 10, 0.1), Publication(5, 30, 0.2)], 0.75)
     d = Data([a1, a2, a3])
     algorithm(d)

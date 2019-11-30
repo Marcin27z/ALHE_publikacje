@@ -1,3 +1,5 @@
+#! python3
+
 from functools import reduce
 
 from chromosome import Chromosome
@@ -10,7 +12,7 @@ def calculate_points(chromosome: Chromosome, data: Data):
     total_points = 0
     for author in zip(chromosome.chromosome, data):
         points, cost = [sum(i) for i in zip(*[(v * p.points, v * p.share) for (v, p) in zip(*author)])]
-        cost_overflow = max(cost - 4 * author[1].share, 0)
+        cost_overflow = max(cost - 4 * author[1].share_ratio, 0)
         points -= cost_overflow * 2.5
         total_points += points
         total_cost += cost
