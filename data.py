@@ -1,18 +1,24 @@
 #! python3
 
 import params
+from data_loader import load_data
+from publication import Publication
 
 class Author:
-    def __init__(self, publications: list, share_ratio: float):
+    def __init__(self, publications: list, share_ratio: float, is_phd_candidate, is_worker, is_N):
         self.publications = publications
         self.share_ratio = share_ratio
+        self.is_phd_candidate = is_phd_candidate
+        self.is_worker = is_worker
+        self.is_N = is_N
 
     def __getitem__(self, item):
         return self.publications[item]
 
 
 class Data:
-    def __init__(self, authors: list):
+    def __init__(self, input_file_name):
+        authors = load_authors(load_data(input_file_name))
         greedy_delete_worst_publications(authors)
         self.authors = authors
 
@@ -57,4 +63,13 @@ def greedy_delete_worst_publications(authors: list):
                 else:
                     index += 1
 
-
+# metoda tworząca i zwracająca listę autorów (wraz z publikacjami)
+def load_authors(parameters: dict):
+    authors = list()
+    for author_number in range(parameters['A']):
+        publications = list()
+        for publication_number in range(len(parameters['u'][author_number])):
+            if parameters['w'][author_number][publication_number] > 0:
+                publications.append(Publication(publication_number, parameters['w'][author_number][publication_number], parameters['u'][author_number][publication_number], parameters['monografia'][publication_number]))
+        authors.append(Author(publications, 1, parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
+    return authors
