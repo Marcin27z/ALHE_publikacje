@@ -32,7 +32,7 @@ def calculate_points2(chromosome: Chromosome, data: Data):
         for j, subgene in enumerate(gene):
             points += subgene * data[i][j].points
             cost += subgene * data[i][j].share
-            monograph_cost += subgene * data[i][j].share * data[i][j].is_monography
+            monograph_cost += subgene * data[i][j].share * data[i][j].is_monograph
         cost_overflow = max(cost - 4 * data[i].share_ratio, 0)
         monograph_cost_overflow = max(monograph_cost - 2 * data[i].share_ratio, 0)
         points -= cost_overflow * 2.5 + monograph_cost_overflow * 2.5
