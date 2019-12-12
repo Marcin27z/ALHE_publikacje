@@ -2,6 +2,7 @@
 
 import random
 import params
+import copy
 
 class Chromosome:
     def __init__(self, chromosome):
@@ -16,7 +17,7 @@ class Chromosome:
         return cls(chromosome)
 
     def cross(self, other):
-        chromosome = [gene1 if _should_cross() else gene2 for (gene1, gene2) in
+        chromosome = [copy.deepcopy(gene1) if _should_cross() else copy.deepcopy(gene2) for (gene1, gene2) in
                       list(zip(self.chromosome, other.chromosome))]
         return Chromosome.from_list(chromosome)
 
