@@ -5,9 +5,10 @@ from data_loader import load_data
 from publication import Publication
 
 class Author:
-    def __init__(self, publications: list, share_ratio: float, is_phd_candidate, is_worker, is_N):
+    def __init__(self, publications: list, share_ratio: float, id, is_phd_candidate, is_worker, is_N):
         self.publications = publications
         self.share_ratio = share_ratio
+        self.id = id
         self.is_phd_candidate = is_phd_candidate
         self.is_worker = is_worker
         self.is_N = is_N
@@ -41,27 +42,21 @@ def calculate_share_sum(author: list):
 # metoda zwracająca listę numerów publikacji do usunięcia dla danego autora (numery wybierane zachłannie)
 def greedy_select_worst_publications(author: list, share_sum: float, limit: float):
     sorted_publications = sorted(author)  # sorted tworzy kopię listy w przeciwieństwie do sort
-    to_be_deleted = list()
+    to_be_deleted = set()
     while share_sum > limit:
         share_sum -= sorted_publications[0].share
-        to_be_deleted.append(sorted_publications[0].publication_number)
+        to_be_deleted.add(sorted_publications[0].id)
         sorted_publications.pop(0)
-    to_be_deleted.sort()
     return to_be_deleted
 
+# metoda usuwająca "najgorsze" publikacje metodą zachłanną
 def greedy_delete_worst_publications(authors: list):
     for author in authors:
         share_sum = calculate_share_sum(author)
         share_limit = author.share_ratio * params.GREEDY_SELECTION_SHARE_LIMIT
         if share_sum > share_limit:
             to_be_deleted = greedy_select_worst_publications(author, share_sum, share_limit)
-            index = 0
-            while len(to_be_deleted) != 0:
-                if author[index].publication_number == to_be_deleted[0]:
-                    author.publications.pop(index)
-                    to_be_deleted.pop(0)
-                else:
-                    index += 1
+            author.publications = [publication for publication in author if not publication.id in to_be_deleted]
 
 # metoda tworząca i zwracająca listę autorów (wraz z publikacjami)
 def load_authors(parameters: dict):
@@ -70,6 +65,6 @@ def load_authors(parameters: dict):
         publications = list()
         for publication_number in range(len(parameters['u'][author_number])):
             if parameters['w'][author_number][publication_number] > 0:
-                publications.append(Publication(publication_number, parameters['w'][author_number][publication_number], parameters['u'][author_number][publication_number], parameters['monografia'][publication_number]))
-        authors.append(Author(publications, 1, parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
+                publications.append(Publication(parameters['publicationIdList'][publication_number], parameters['w'][author_number][publication_number], parameters['u'][author_number][publication_number], parameters['monografia'][publication_number]))
+        authors.append(Author(publications, parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
     return authors

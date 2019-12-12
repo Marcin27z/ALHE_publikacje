@@ -17,7 +17,7 @@ def main():
     authors = Data("filozofia-input.txt")
     for author in authors:
         for publication in author.publications:
-            print(publication.publication_number, end = ' ')
+            print(publication.id, end = ' ')
         print()
 
 if __name__ == "__main__":

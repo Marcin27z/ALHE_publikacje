@@ -1,11 +1,12 @@
 #! python3
 
 class Publication:
-    def __init__(self, publication_number, points, share, is_monography):
-        self.publication_number = publication_number
+    def __init__(self, id, points, share, is_monography):
+        self.id = id
         self.points = points
         self.share = share
         self.ratio = points / share
+        self.is_monography = is_monography
 
     def __eq__(self, other):
         return self.ratio == other.ratio
