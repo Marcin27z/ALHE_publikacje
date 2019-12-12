@@ -4,7 +4,7 @@ import functools
 import random
 
 import params
-from cost import calculate_points
+from cost_function import calculate_points
 from chromosome import Chromosome
 from data import Data, Author
 from publication import Publication
