@@ -4,8 +4,8 @@ from chromosome import Chromosome
 from data import Data
 
 
-# calculate points for publication in chromosome
-# reduce points if shares don't meet constraints
+# metoda licząca punkty za publikacje wchodzące w skład chromosomu
+# kara za niespełnienie warunków
 def calculate_points(chromosome: Chromosome, data: Data):
     total_share = 0
     total_points = 0
