@@ -21,6 +21,11 @@ class Chromosome:
                       list(zip(self.chromosome, other.chromosome))]
         return Chromosome.from_list(chromosome)
 
+    def cross_one_point(self, other):
+        locus = random.randint(0, len(self.chromosome))
+        chromosome = copy.deepcopy(self.chromosome[:locus]) + copy.deepcopy(other.chromosome[locus:])
+        return Chromosome.from_list(chromosome)
+
     def mutate(self):
         for gene in self.chromosome:
             for value in gene:

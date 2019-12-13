@@ -32,6 +32,9 @@ class Data:
     def get_total_share_available(self):
         return sum(map(lambda a: a.share_ratio, self.authors))
 
+    def get_N(self):
+        return sum([author.is_N for author in self.authors])
+
 # policzenie sumy udziałów danego autora
 def calculate_share_sum(author: list):
     share_sum = 0

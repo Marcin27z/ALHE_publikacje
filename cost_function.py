@@ -22,7 +22,7 @@ def calculate_points(chromosome: Chromosome, data: Data):
         points -= share_overflow * 2.5 + monograph_share_overflow * 2.5
         total_points += points
         total_share += share
-    total_share_overflow = max(total_share - len(chromosome.chromosome) * 3 * data.get_total_share_available(), 0)
+    total_share_overflow = max(total_share - 3 * data.get_N(), 0)
     total_points -= total_share_overflow * 2.5
     return total_points
 
