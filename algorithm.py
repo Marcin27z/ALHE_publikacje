@@ -12,14 +12,16 @@ from data import Data
 # najlepiej działa select_best z dodawaniem losowych + cross_random
 
 def algorithm(data: Data):
-    chromosomes = gen_random_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
-    # chromosomes = select_best(chromosomes, data)
-    while True:
-        offspring = cross_random(chromosomes, params.NUMBER_OF_CHROMOSOMES)
-        offspring = [o.mutate() for o in offspring]
-        chromosomes = select_best(chromosomes + offspring, data, add_random=True)
-        print([calculate_points(chromosome, data) for chromosome in chromosomes])
-
+    try:
+        chromosomes = gen_random_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        # chromosomes = select_best(chromosomes, data)
+        while True:
+            offspring = cross_random(chromosomes, params.NUMBER_OF_CHROMOSOMES)
+            offspring = [o.mutate() for o in offspring]
+            chromosomes = select_best(chromosomes + offspring, data, add_random=True)
+            print([calculate_points(chromosome, data) for chromosome in chromosomes])
+    except KeyboardInterrupt:
+        return sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
 
 def select_best(chromosomes: list, data: Data, can_be_sorted=True, add_random=False, number_of_random=5):
     number = params.NUMBER_OF_CHROMOSOMES - number_of_random if add_random else params.NUMBER_OF_CHROMOSOMES
@@ -47,12 +49,3 @@ def cross_random(chromosomes: list, number_of_offspring: int):
 
 def gen_random_chromosomes(data: Data, number: int):
     return [Chromosome.random(data.get_publications_numbers()) for _ in range(number)]
-
-
-if __name__ == "__main__":
-    d = Data("filozofia-input.txt")
-    algorithm(d)
-
-# def select_ranked(chromosomes: list, data: Data):
-#     number = params.NUMBER_OF_CHROMOSOMES
-#     sorted_chromosomes = sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)

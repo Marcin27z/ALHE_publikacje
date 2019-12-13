@@ -16,6 +16,9 @@ class Chromosome:
     def from_list(cls, chromosome):
         return cls(chromosome)
 
+    def __getitem__(self, item):
+        return self.chromosome[item]
+
     def cross(self, other):
         chromosome = [copy.deepcopy(gene1) if _should_cross() else copy.deepcopy(gene2) for (gene1, gene2) in
                       list(zip(self.chromosome, other.chromosome))]

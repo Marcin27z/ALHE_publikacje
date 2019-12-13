@@ -11,6 +11,3 @@ def load_data(file_name):
         parameters = {key: literal_eval(value) for key, value in [line.split(' = ') for line in lines]}
         return parameters
 
-
-if __name__ == '__main__':
-    print(load_data("filozofia-input.txt"))
