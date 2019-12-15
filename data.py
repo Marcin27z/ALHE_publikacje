@@ -69,5 +69,5 @@ def load_authors(parameters: dict):
         for publication_number in range(len(parameters['u'][author_number])):
             if parameters['w'][author_number][publication_number] > 0:
                 publications.append(Publication(parameters['publicationIdList'][publication_number], parameters['w'][author_number][publication_number], parameters['u'][author_number][publication_number], parameters['monografia'][publication_number]))
-        authors.append(Author(publications, parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
+        authors.append(Author(sorted(publications, reverse=True), parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
     return authors
