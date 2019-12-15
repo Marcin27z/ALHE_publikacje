@@ -1,12 +1,12 @@
 #! python3
 
-import random
 from publication import Publication
 from data import Data, Author
 from algorithm import algorithm
+import params
 
 def main():
-    authors = Data("input_data/filozofia-input.txt")
+    authors = Data(params.FILENAME)
     result = algorithm(authors)
 
     for author_number, author in enumerate(authors):
