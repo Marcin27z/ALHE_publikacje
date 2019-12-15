@@ -3,10 +3,17 @@
 import random
 
 import params
-from cost_function import calculate_points
+from cost_function import calculate_points as calculate_points_punishment
+from cost_function import calculate_points_with_repair as calculate_points_repair
 from chromosome import Chromosome
 from data import Data
+from mode import Mode
 
+
+def calculate_points(chromosome: Chromosome, data: Data):
+    if params.MODE == Mode.PUNISHMENT:
+        return calculate_points_punishment(chromosome, data)
+    return calculate_points_repair(chromosome, data)
 
 # 1124.15
 # najlepiej działa select_best z dodawaniem losowych + cross_random
