@@ -36,18 +36,18 @@ def calculate_points_with_repair(chromosome: Chromosome, data: Data):
         monograph_share = 0
         for j, subgene in enumerate(gene):
             if data[i][j].is_monograph:
-                if monograph_share + subgene * data[i][j].share < 2 * data[i].share_ratio:
+                if share + subgene * data[i][j].share < 4 * data[i].share_ratio and monograph_share + subgene * data[i][j].share < 2 * data[i].share_ratio:
                     points += subgene * data[i][j].points
                     share += subgene * data[i][j].share
                     monograph_share += subgene * data[i][j].share
                 else:
-                    subgene = 0
+                    gene[j] = 0
             else:
                 if share + subgene * data[i][j].share < 4 * data[i].share_ratio:
                     points += subgene * data[i][j].points
                     share += subgene * data[i][j].share
                 else:
-                    subgene = 0
+                    gene[j] = 0
         total_points += points
         total_share += share
     while total_share > 3 * data.get_N():
