@@ -1,33 +1,58 @@
 #! python3
 
-import functools
 import random
 
 import params
-from cost import calculate_points
+from cost_function import calculate_points as calculate_points_punishment
+from cost_function import calculate_points_with_repair as calculate_points_repair
 from chromosome import Chromosome
-from data import Data, Author
-from publication import Publication
+from data import Data
+from mode import Mode
 
+
+def calculate_points(chromosome: Chromosome, data: Data):
+    if params.MODE == Mode.PUNISHMENT:
+        return calculate_points_punishment(chromosome, data)
+    return calculate_points_repair(chromosome, data)
+
+# 1124.15
+# najlepiej działa select_best z dodawaniem losowych + cross_random
 
 def algorithm(data: Data):
-    chromosomes = [Chromosome.random(data.get_publications_numbers()) for _ in range(params.NUMBER_OF_CHROMOSOMES)]
-    while True:
-        offspring = [c1.cross(c2) for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2])]
-        offspring = [o.mutate() for o in offspring]
-        chromosomes = select_best(chromosomes + offspring, data)
-        print([calculate_points(chromosome, data) for chromosome in chromosomes])
+    try:
+        chromosomes = gen_random_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        # chromosomes = select_best(chromosomes, data)
+        while True:
+            offspring = cross_random(chromosomes, params.NUMBER_OF_CHROMOSOMES)
+            offspring = [o.mutate() for o in offspring]
+            chromosomes = select_best(chromosomes + offspring, data, add_random=True)
+            print([calculate_points(chromosome, data) for chromosome in chromosomes])
+    except KeyboardInterrupt:
+        return sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
 
-
-def select_best(chromosomes: list, data: Data):
-    number = params.NUMBER_OF_CHROMOSOMES
+def select_best(chromosomes: list, data: Data, can_be_sorted=True, add_random=False, number_of_random=5):
+    number = params.NUMBER_OF_CHROMOSOMES - number_of_random if add_random else params.NUMBER_OF_CHROMOSOMES
     sorted_chromosomes = sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)
-    return sorted_chromosomes[0:number]
+    if can_be_sorted:
+        result = sorted_chromosomes[0:number]
+    else:
+        chromosomes_to_be_selected = set(sorted_chromosomes[0:number])
+        result = [chromosome for chromosome in chromosomes if chromosome in chromosomes_to_be_selected]
+    return result + gen_random_chromosomes(data, number_of_random if add_random else 0)
 
 
-if __name__ == "__main__":
-    a1 = Author([Publication(0, 10, 0.1), Publication(1, 10, 0.2)], 1)
-    a2 = Author([Publication(2, 10, 0.1), Publication(3, 20, 0.2)], 0.5)
-    a3 = Author([Publication(4, 10, 0.1), Publication(5, 30, 0.2)], 0.75)
-    d = Data([a1, a2, a3])
-    algorithm(d)
+def cross_pairwise(chromosomes: list):
+    return [c1.cross(c2) for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2])]
+
+
+def cross_random(chromosomes: list, number_of_offspring: int):
+    offspring = list()
+    for _ in range(0, number_of_offspring):
+        c1 = chromosomes[random.randint(0, len(chromosomes) - 1)]
+        c2 = chromosomes[random.randint(0, len(chromosomes) - 1)]
+        offspring.append(c1.cross(c2))
+    return offspring
+
+
+def gen_random_chromosomes(data: Data, number: int):
+    return [Chromosome.random(data.get_publications_numbers()) for _ in range(number)]

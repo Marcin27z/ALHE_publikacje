@@ -1,8 +1,8 @@
 from ast import literal_eval
 
 
-# file needs to contain new line at the end of the file
-# return dictionary containing key value pairs from file
+# plik musi zawierać nową linię na końcu pliku
+# zwróć słownik zawierający pary klucz-wartość z pliku
 def load_data(file_name):
     with open(file_name, mode='r') as file:
         lines = file.readlines()
@@ -11,6 +11,3 @@ def load_data(file_name):
         parameters = {key: literal_eval(value) for key, value in [line.split(' = ') for line in lines]}
         return parameters
 
-
-if __name__ == '__main__':
-    print(load_data("filozofia-input.txt"))
