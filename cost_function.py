@@ -58,13 +58,13 @@ def calculate_points_with_repair(chromosome: Chromosome, data: Data):
 
 
 def delete_worst(chromosome: Chromosome, data: Data):
-    worst = 100
+    worst = 101
     worst_i = 0
     worst_j = 0
     for i, gene in enumerate(chromosome.chromosome):
         for j, subgene in enumerate(gene):
-            if data[i][j] < worst and subgene == 1:
-                worse = data[i][j]
+            if data[i][j].share < worst and subgene == 1:
+                worst = data[i][j]
                 worst_i, worst_j = (i, j)
     chromosome[worst_i][worst_j] = 0
     return worst_i, worst_j
