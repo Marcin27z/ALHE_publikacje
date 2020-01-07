@@ -4,9 +4,11 @@ import random
 import params
 import copy
 
+
 class Chromosome:
     def __init__(self, chromosome):
         self.chromosome = chromosome
+        self.points = 0
 
     @classmethod
     def random(cls, author_publications_numbers: list):
@@ -30,6 +32,7 @@ class Chromosome:
         return Chromosome.from_list(chromosome)
 
     def mutate(self):
+        self.points = 0
         for gene in self.chromosome:
             for value in gene:
                 if _should_mutate():
