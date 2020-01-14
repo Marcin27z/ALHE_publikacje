@@ -4,6 +4,7 @@ from publication import Publication
 from data import Data, Author
 from algorithm import algorithm
 import params
+from mode import StartingPoint
 from file_logger import FileLogger
 
 
@@ -15,9 +16,23 @@ def run_algorithm(file_name):
     logger = FileLogger(file_name)
     authors = Data(file_name)
     logger.log_K(sum(authors.get_publications_numbers()))
-    history, result = algorithm(authors)
+
+    history, result = algorithm(authors, StartingPoint.NONE)
     logger.log_max_list(history)
     logger.log_result(result.chromosome)
+
+    history, result = algorithm(authors, StartingPoint.ALL)
+    logger.log_max_list(history)
+    logger.log_result(result.chromosome)
+
+    history, result = algorithm(authors, StartingPoint.BEST)
+    logger.log_max_list(history)
+    logger.log_result(result.chromosome)
+
+    for _ in range(25):
+        history, result = algorithm(authors, StartingPoint.ALL)
+        logger.log_max_list(history)
+        logger.log_result(result.chromosome)
 
     for author_number, author in enumerate(authors):
         print(author.id, end=': [ ')

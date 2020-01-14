@@ -8,6 +8,7 @@ from cost_function import calculate_points_with_repair as calculate_points_repai
 from chromosome import Chromosome
 from data import Data
 from mode import Mode
+from mode import StartingPoint
 from cost_function import EndOfCalculations
 from cost_function import CostCalculationsSupervisor
 
@@ -21,10 +22,18 @@ def calculate_points(chromosome: Chromosome, data: Data):
 # 1124.15
 # najlepiej działa select_best z dodawaniem losowych + cross_random
 
-def algorithm(data: Data):
+def algorithm(data: Data, starting_point: StartingPoint):
     CostCalculationsSupervisor.set_k(sum(data.get_publications_numbers()))
     try:
-        chromosomes = gen_random_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        if starting_point == StartingPoint.RANDOM:
+            chromosomes = gen_random_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        elif starting_point == StartingPoint.BEST:
+            chromosomes = gen_best_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        elif starting_point == StartingPoint.ALL:
+            chromosomes = gen_full_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+        else:
+            chromosomes = gen_empty_chromosomes(data, params.NUMBER_OF_CHROMOSOMES)
+
         # chromosomes = select_best(chromosomes, data)
         while True:
             offspring = cross_random(chromosomes, params.NUMBER_OF_CHROMOSOMES)
@@ -68,4 +77,13 @@ def cross_random(chromosomes: list, number_of_offspring: int):
 
 
 def gen_random_chromosomes(data: Data, number: int):
-    return [Chromosome.random(data.get_publications_numbers()) for _ in range(number)]
+    return [Chromosome.random(data.authors) for _ in range(number)]
+
+def gen_best_chromosomes(data: Data, number: int):
+    return [Chromosome.best(data.authors)] * number
+
+def gen_full_chromosomes(data: Data, number: int):
+    return [Chromosome.full(data.get_publications_numbers())] * number
+
+def gen_empty_chromosomes(data: Data, number: int):
+    return [Chromosome.empty(data.get_publications_numbers())] * number

@@ -66,11 +66,11 @@ def calculate_points(chromosome: Chromosome, data: Data):
             monograph_share += subgene * data[i][j].share * data[i][j].is_monograph
         share_overflow = max(share - 4 * data[i].share_ratio, 0)
         monograph_share_overflow = max(monograph_share - 2 * data[i].share_ratio, 0)
-        points -= share_overflow * 2.5 + monograph_share_overflow * 2.5
+        points -= share_overflow * 500 + monograph_share_overflow * 500
         total_points += points
         total_share += share
     total_share_overflow = max(total_share - 3 * data.get_N(), 0)
-    total_points -= total_share_overflow * 2.5
+    total_points -= total_share_overflow * 500
     return total_points
 
 @log_call
