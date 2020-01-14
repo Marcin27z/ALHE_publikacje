@@ -30,7 +30,7 @@ def run_algorithm(file_name):
     logger.log_result(result.chromosome)
 
     for _ in range(25):
-        history, result = algorithm(authors, StartingPoint.ALL)
+        history, result = algorithm(authors, StartingPoint.RANDOM)
         logger.log_max_list(history)
         logger.log_result(result.chromosome)
 
