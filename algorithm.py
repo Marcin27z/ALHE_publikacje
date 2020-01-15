@@ -43,7 +43,8 @@ def algorithm(data: Data, starting_point: StartingPoint):
     except KeyboardInterrupt:
         return [], sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
     except EndOfCalculations as end_of_calculation:
-        return end_of_calculation.max_history, sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
+        return end_of_calculation.max_history, \
+               sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
 
 
 def select_best(chromosomes: list, data: Data, can_be_sorted=True, add_random=False, number_of_random=5):
@@ -79,11 +80,35 @@ def cross_random(chromosomes: list, number_of_offspring: int):
 def gen_random_chromosomes(data: Data, number: int):
     return [Chromosome.random(data.authors) for _ in range(number)]
 
+
 def gen_best_chromosomes(data: Data, number: int):
-    return [Chromosome.best(data.authors)] * number
+    return [Chromosome.best(data.authors) for _ in range(number)]
+
 
 def gen_full_chromosomes(data: Data, number: int):
-    return [Chromosome.full(data.get_publications_numbers())] * number
+    return [Chromosome.full(data.get_publications_numbers()) for _ in range(number)]
+
 
 def gen_empty_chromosomes(data: Data, number: int):
-    return [Chromosome.empty(data.get_publications_numbers())] * number
+    return [Chromosome.empty((data.get_publications_numbers())) for _ in range(number)]
+
+
+def calculate_chromosomes_points(chromosomes: list, data: Data):
+    for chromosome in chromosomes:
+        if chromosome.points == 0:
+            chromosome.points = calculate_points(chromosome, data)
+
+
+def play_tournament(chromosomes: list, size: int):
+    contestants = random.choices(chromosomes, k=size)
+    return sorted(contestants, key=lambda c1: c1.points, reverse=True)[0]
+
+
+def should_cross_chromosomes():
+    return params.CHROMOSOME_MUTATION_PROBABILITY > random.randint(0, 99)
+
+
+def select_tournament(chromosomes: list, number: int, size_of_tournament: int = 5):
+    return [play_tournament(chromosomes, size_of_tournament) for _ in range(0, number)]
+
+

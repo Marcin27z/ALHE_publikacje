@@ -37,6 +37,7 @@ class CostCalculationsSupervisor:
             return
         CostCalculationsSupervisor._call_count += 1
         if CostCalculationsSupervisor._call_count == CostCalculationsSupervisor._stop_treshold + 1:
+            CostCalculationsSupervisor._call_count = 0
             raise EndOfCalculations(CostCalculationsSupervisor._max_history)
 
 
