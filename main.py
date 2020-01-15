@@ -19,20 +19,20 @@ def run_algorithm(file_name):
 
     history, result = algorithm(authors, StartingPoint.NONE)
     logger.log_max_list(history)
-    logger.log_result(result.chromosome)
+    logger.log_result(authors.full_result_for_chromosome(result.chromosome))
 
     history, result = algorithm(authors, StartingPoint.ALL)
     logger.log_max_list(history)
-    logger.log_result(result.chromosome)
+    logger.log_result(authors.full_result_for_chromosome(result.chromosome))
 
     history, result = algorithm(authors, StartingPoint.BEST)
     logger.log_max_list(history)
-    logger.log_result(result.chromosome)
+    logger.log_result(authors.full_result_for_chromosome(result.chromosome))
 
     for _ in range(25):
         history, result = algorithm(authors, StartingPoint.RANDOM)
         logger.log_max_list(history)
-        logger.log_result(result.chromosome)
+        logger.log_result(authors.full_result_for_chromosome(result.chromosome))
 
     for author_number, author in enumerate(authors):
         print(author.id, end=': [ ')
