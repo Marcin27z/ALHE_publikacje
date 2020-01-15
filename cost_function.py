@@ -2,6 +2,7 @@
 
 from chromosome import Chromosome
 from data import Data
+import copy
 
 
 class EndOfCalculations(Exception):
@@ -38,7 +39,10 @@ class CostCalculationsSupervisor:
         CostCalculationsSupervisor._call_count += 1
         if CostCalculationsSupervisor._call_count == CostCalculationsSupervisor._stop_treshold + 1:
             CostCalculationsSupervisor._call_count = 0
-            raise EndOfCalculations(CostCalculationsSupervisor._max_history)
+            temp_max_history = copy.deepcopy(CostCalculationsSupervisor._max_history)
+            CostCalculationsSupervisor._max_history.clear()
+            CostCalculationsSupervisor._max = 0
+            raise EndOfCalculations(temp_max_history)
 
 
 def log_call(func):
