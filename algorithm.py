@@ -11,6 +11,7 @@ from mode import Mode
 from mode import StartingPoint
 from cost_function import EndOfCalculations
 from cost_function import CostCalculationsSupervisor
+from typing import List
 
 
 def calculate_points(chromosome: Chromosome, data: Data):
@@ -36,10 +37,10 @@ def algorithm(data: Data, starting_point: StartingPoint):
 
         # chromosomes = select_best(chromosomes, data)
         while True:
-            offspring = cross_random(chromosomes, params.NUMBER_OF_CHROMOSOMES)
-            offspring = [o.mutate() for o in offspring]
-            chromosomes = select_best(chromosomes + offspring, data, add_random=True)
+            calculate_chromosomes_points(chromosomes, data)
             print([chromosome.points for chromosome in chromosomes])
+            chromosomes = operate(chromosomes)
+            chromosomes = mutate(chromosomes)
     except KeyboardInterrupt:
         return [], sorted(chromosomes, key=lambda c1: calculate_points(c1, data), reverse=True)[0]
     except EndOfCalculations as end_of_calculation:
@@ -110,5 +111,34 @@ def should_cross_chromosomes():
 
 def select_tournament(chromosomes: list, number: int, size_of_tournament: int = 5):
     return [play_tournament(chromosomes, size_of_tournament) for _ in range(0, number)]
+
+
+def cross(chromosomes: list):
+    # return [c1.cross(c2) for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2])]
+    result = list()
+    crossed_chromosomes = 0
+    for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2]):
+        if should_cross_chromosomes():
+            result.append(c1.cross(c2))
+        else:
+            result.append(c1)
+            result.append(c2)
+    return result
+
+
+def mutate(chromosomes: list):
+    return [c.mutate() for c in chromosomes]
+
+
+def operate(chromosomes: list):
+    result = list()
+    for i in range(0, len(chromosomes)):
+        if should_cross_chromosomes():
+            c1, c2, *_ = select_tournament(chromosomes, 2)
+            result.append(c1.cross(c2))
+        else:
+            result.append(select_tournament(chromosomes, 1)[0])
+    return result
+
 
 

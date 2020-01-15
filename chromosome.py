@@ -47,9 +47,10 @@ class Chromosome:
     def mutate(self):
         self.points = 0
         for gene in self.chromosome:
-            for value in gene:
+            for i, value in enumerate(gene):
                 if _should_mutate():
-                    value = not value
+                    gene[i] = not value
+
         return self
 
 
