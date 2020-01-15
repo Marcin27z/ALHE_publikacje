@@ -20,9 +20,8 @@ class Author:
 
 class Data:
     def __init__(self, input_file_name):
-        authors = load_authors(load_data(input_file_name))
-        greedy_delete_worst_publications(authors)
-        self.authors = authors
+        self.authors, self.publications_id_list = load_authors(load_data(input_file_name))
+        greedy_delete_worst_publications(self.authors)
 
     def __getitem__(self, item):
         return self.authors[item]
@@ -35,6 +34,24 @@ class Data:
 
     def get_N(self):
         return sum([author.is_N for author in self.authors])
+
+    def full_result_for_chromosome(self, chromosome):
+        result = list()
+        for author_number in range(len(chromosome)):
+            author_result = list()
+            i = 0
+            author_publications_number = len(chromosome[author_number])
+            for id in self.publications_id_list:
+                if i < author_publications_number and id == self.authors[author_number][i].id:
+                    if chromosome[author_number][i] == 1:
+                        author_result.append(1)
+                    else:
+                        author_result.append(0)
+                    i += 1
+                else:
+                    author_result.append(0)     
+            result.append(author_result)
+        return result
 
 # policzenie sumy udziałów danego autora
 def calculate_share_sum(author: list):
@@ -80,5 +97,6 @@ def load_authors(parameters: dict):
         for publication_number in range(len(parameters['u'][author_number])):
             if parameters['w'][author_number][publication_number] > 0:
                 publications.append(Publication(parameters['publicationIdList'][publication_number], parameters['w'][author_number][publication_number], parameters['u'][author_number][publication_number], parameters['monografia'][publication_number]))
-        authors.append(Author(sorted(publications, reverse=True), parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
-    return authors
+        #authors.append(Author(sorted(publications, reverse=True), parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
+        authors.append(Author(publications, parameters['udzial'][author_number], parameters['authorIdList'][author_number], parameters['doktorant'][author_number], parameters['pracownik'][author_number], parameters['czyN'][author_number]))
+    return authors, parameters['publicationIdList']
