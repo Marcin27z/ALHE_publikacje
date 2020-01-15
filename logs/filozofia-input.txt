@@ -1,0 +1,12 @@
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 866.6500000000001
+Po 350 wywolaniach najlepsza wartosc wynosi: 1004.1500000000001
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1106.65
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 1] [1, 1] [1, 1]
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 786.2
+Po 350 wywolaniach najlepsza wartosc wynosi: 986.2
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1090.9
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 1] [1, 1] [1, 1]

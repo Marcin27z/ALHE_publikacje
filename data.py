@@ -1,6 +1,7 @@
 #! python3
 
 import params
+import random
 from data_loader import load_data
 from publication import Publication
 
@@ -51,6 +52,16 @@ def greedy_select_worst_publications(author: list, share_sum: float, limit: floa
         to_be_deleted.add(sorted_publications[0].id)
         sorted_publications.pop(0)
     return to_be_deleted
+
+# metoda zwracająca listę numerów publikacji do usunięcia dla danego autora (numery wybierane losowo)
+def select_random_publications(author: list, share_sum: float, limit: float):
+    randomly_ordered_publications = random.sample(author.publications, len(author.publications))
+    to_be_omitted = set()
+    while share_sum > limit:
+        share_sum -= randomly_ordered_publications[0].share
+        to_be_omitted.add(randomly_ordered_publications[0].id)
+        randomly_ordered_publications.pop(0)
+    return to_be_omitted
 
 # metoda usuwająca "najgorsze" publikacje metodą zachłanną
 def greedy_delete_worst_publications(authors: list):
