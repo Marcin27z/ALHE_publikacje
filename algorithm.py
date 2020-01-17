@@ -38,7 +38,7 @@ def algorithm(data: Data, starting_point: StartingPoint):
         # chromosomes = select_best(chromosomes, data)
         while True:
             calculate_chromosomes_points(chromosomes, data)
-            print([chromosome.points for chromosome in chromosomes])
+            # print([chromosome.points for chromosome in chromosomes])
             chromosomes = operate(chromosomes)
             chromosomes = mutate(chromosomes)
     except KeyboardInterrupt:

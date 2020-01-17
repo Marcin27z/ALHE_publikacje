@@ -1,7 +1,7 @@
 class FileLogger:
 
     def __init__(self, file_name: str):
-        self.file = open("logs/" + file_name.split("/")[len(file_name.split("/")) - 1], "a+")
+        self.file = open(file_name, "a+")
         self.file.write("-" * 100 + "\n")
         self.k = 1
 
@@ -15,6 +15,10 @@ class FileLogger:
 
     def log_result(self, result):
         self.file.write(' '.join(map(str, result)) + "\n")
+
+    def log_start_point(self, start_point):
+        self.file.write(str(start_point))
+        self.file.write("\n")
 
     def close(self):
         self.file.close()
