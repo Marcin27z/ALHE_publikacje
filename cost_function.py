@@ -22,7 +22,7 @@ class CostCalculationsSupervisor:
     @staticmethod
     def set_k(k):
         CostCalculationsSupervisor._k = k
-        CostCalculationsSupervisor._tresholds = {pow(10, t) * k for t in range(0, 3)}
+        CostCalculationsSupervisor._tresholds = {pow(10, t) * k for t in range(0, 4)}
         CostCalculationsSupervisor._stop_treshold = pow(10, 3) * k
 
     @staticmethod
