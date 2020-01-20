@@ -116,7 +116,6 @@ def select_tournament(chromosomes: list, number: int, size_of_tournament: int = 
 def cross(chromosomes: list):
     # return [c1.cross(c2) for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2])]
     result = list()
-    crossed_chromosomes = 0
     for c1, c2 in zip(chromosomes[0::2], chromosomes[1::2]):
         if should_cross_chromosomes():
             result.append(c1.cross(c2))
@@ -132,7 +131,7 @@ def mutate(chromosomes: list):
 
 def operate(chromosomes: list):
     result = list()
-    for i in range(0, len(chromosomes)):
+    for _ in range(0, len(chromosomes)):
         if should_cross_chromosomes():
             c1, c2, *_ = select_tournament(chromosomes, 2)
             result.append(c1.cross(c2))

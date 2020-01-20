@@ -1,7 +1,7 @@
 #! python3
 
 from chromosome import Chromosome
-from data import Data
+from data import Data, greedy_select_worst_publications
 import copy
 
 
@@ -83,22 +83,23 @@ def calculate_points_with_repair(chromosome: Chromosome, data: Data):
     for i, gene in enumerate(chromosome.chromosome):
         points = 0
         share = 0
-        monograph_share = 0
         for j, subgene in enumerate(gene):
-            if data[i][j].is_monograph:
-                if share + subgene * data[i][j].share < 4 * data[i].share_ratio and monograph_share + subgene * data[i][
-                    j].share < 2 * data[i].share_ratio:
-                    points += subgene * data[i][j].points
-                    share += subgene * data[i][j].share
-                    monograph_share += subgene * data[i][j].share
+            points += subgene * data[i][j].points
+            share += subgene * data[i][j].share
+        if max(share - 4 * data[i].share_ratio, 0) > 0:
+            to_be_omitted_set = greedy_select_worst_publications(data[i], share, 4 * data[i].share_ratio)
+            # repaired_gene = [1 if not publication.id in to_be_omitted_set else 0 for publication in data[i]]
+            repaired_gene = list()
+            points = 0
+            share = 0
+            for publication in data[i]:
+                if not publication.id in to_be_omitted_set:
+                    points += publication.points
+                    share += publication.share
+                    repaired_gene.append(1)
                 else:
-                    gene[j] = 0
-            else:
-                if share + subgene * data[i][j].share < 4 * data[i].share_ratio:
-                    points += subgene * data[i][j].points
-                    share += subgene * data[i][j].share
-                else:
-                    gene[j] = 0
+                    repaired_gene.append(0)
+            chromosome.chromosome[i] = repaired_gene
         total_points += points
         total_share += share
     while total_share > 3 * data.get_N():
