@@ -1,0 +1,133 @@
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 0
+Po 350 wywolaniach najlepsza wartosc wynosi: 0
+Po 3500 wywolaniach najlepsza wartosc wynosi: 0
+[0, 0] [0] [0] [0, 0, 0, 0] [0, 0, 0, 0] [0, 0] [0, 0] [0, 0, 0, 0, 0, 0, 0] [0, 0, 0] [0, 0, 0, 0, 0] [0, 0] [0, 0]
+Po 35 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+Po 350 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+Po 3500 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [0, 1, 1, 1, 1, 1, 1] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [1, 0, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [1, 1, 1, 0, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 0, 1, 0, 1] [1, 1, 1] [1, 1, 1, 0, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 0] [1, 1, 1] [1, 1, 1, 0, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 0, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 0, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [1, 1, 1, 0, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 0, 1, 0, 1] [1, 1, 1] [1, 0, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 0, 0, 1, 1, 1, 1] [1, 1, 1] [1, 1, 0, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [0, 1, 1, 1, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 0, 1, 0, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 0] [1, 1, 1] [1, 1, 1, 0, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [1, 1, 0, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 1, 0, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 0] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 0, 1, 0, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 0] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 0, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [1, 0, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 0, 1, 1] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 0] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+Po 35 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 0, 1, 1, 0, 1] [1, 1, 1] [0, 1, 1, 1, 1] [1, 1] [1, 1]
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+Po 350 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+Po 3500 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, 1, 1, 1] [1, 1, 1] [1, 1, 1, 1, 1] [1, 1] [1, 1]
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 129.14999999999998
+Po 350 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 1] [1] [1] [1, 1, 1, 1] [1, 1, 1, 1] [1, 1] [1, 1] [1, 1, 1, 1, False, 1, 1] [1, 1, 1] [1, 1, False, 1, 1] [1, 1] [True, 1]
+----------------------------------------------------------------------------------------------------
+K wynosi 35
+Po 35 wywolaniach najlepsza wartosc wynosi: 70.0
+Po 350 wywolaniach najlepsza wartosc wynosi: 974.7
+Po 3500 wywolaniach najlepsza wartosc wynosi: 1089.15
+Po 35000 wywolaniach najlepsza wartosc wynosi: 1089.15
+[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
