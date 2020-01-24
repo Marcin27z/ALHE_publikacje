@@ -103,20 +103,3 @@ def _should_cross():
 def _should_mutate():
     return random.randint(0, 99) < params.GENE_MUTATION_PROBABILITY
 
-def test():
-    #c = Chromosome([3, 2, 3, 2, 2, 2])
-    #c1 = Chromosome([3, 2, 3, 2, 2, 2])
-    c2 = Chromosome.full([3, 2, 3, 2, 2, 2])
-    c3 = Chromosome.empty([3, 2, 3, 2, 2, 2])
-    authors = Data(params.FILENAME)
-    c4 = Chromosome.best(authors)
-    c5 = Chromosome.random(authors)
-    print(c2.chromosome)
-    print(c3.chromosome)
-    print(c4.chromosome)
-    print(c5.chromosome)
-    #c.cross(c1)
-
-
-if __name__ == "__main__":
-    test()
